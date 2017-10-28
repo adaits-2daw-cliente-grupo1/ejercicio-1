@@ -1,4 +1,4 @@
-const ingredient = require("./ingredient");
+const Ingredient = require("./ingredient");
 
 /**
  * Creamos la clase receta.
@@ -30,7 +30,7 @@ class Recipe {
 		if (ingredients instanceof Array) {
 			if (ingredients.length > 3) {
 				for (let i = 0; i < ingredients.length; i += 1) {
-					if (!(ingredients[i] instanceof ingredient)) {
+					if (!(ingredients[i].ingredient instanceof Ingredient) || typeof ingredients[i].quantity !== typeof "") {
 						throw tipoDatoInvalido;
 					}
 				}

@@ -26,11 +26,11 @@ describe("appState", () => {
 
 	before(() => {
 		dummyIngredients = [
-			new Ingredient(1, "leche"),
-			new Ingredient(2, "yogu"),
-			new Ingredient(3, "porvo"),
-			new Ingredient(4, "asuca"),
-		];
+			{ ingredient: new Ingredient(1, "leche"), quantity: "200 g" },
+			{ ingredient: new Ingredient(2, "yogu"), quantity: "10g" },
+			{ ingredient: new Ingredient(3, "porvo"), quantity: "20g" },
+			{ ingredient: new Ingredient(4, "asuca"), quantity: "30g" },
+			{ ingredient: new Ingredient(5, "sumo naranja"), quantity: "400g" }];
 		dummySteps = ["a", "b", "c", "d", "f", "g"];
 		dummyRecipe	= new Recipe(
 			1,
