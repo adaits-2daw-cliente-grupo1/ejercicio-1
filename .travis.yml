@@ -1,6 +1,8 @@
 language: node
 node_js:
   - "8"
+before_install:
+  - shopt -s globstar
 install:
   - npm install
 script:
