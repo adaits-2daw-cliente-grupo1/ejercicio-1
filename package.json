@@ -6,8 +6,8 @@
 	"scripts": {
 		"build": "gulp build",
 		"watch": "gulp watch",
-		"lint": "eslint ./src/js/**/*.js",
-		"test": "mocha ./src/js/**/*.spec.js",
+		"lint": "globstar -- eslint ./src/js/**/*.js",
+		"test": "globstar -- mocha ./src/js/**/*.spec.js",
 		"prepush": "npm run lint && npm run test"
 	},
 	"author": "",
@@ -19,6 +19,7 @@
 		"eslint": "^4.9.0",
 		"eslint-config-airbnb-base": "^12.1.0",
 		"eslint-plugin-import": "^2.7.0",
+		"globstar": "^1.0.0",
 		"gulp": "^3.9.1",
 		"gulp-streamify": "^1.0.2",
 		"gulp-uglify": "^3.0.0",
