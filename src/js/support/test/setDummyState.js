@@ -31,7 +31,7 @@ function setDummyState() {
 		dummySteps,
 		"mexicana",
 		"china",
-		1,
+		1
 	));
 	addRecipeToState(new Recipe(
 		2,
@@ -46,7 +46,7 @@ function setDummyState() {
 		dummySteps,
 		"mexicana",
 		"china",
-		2,
+		2
 	));
 	addRecipeToState(new Recipe(
 		1,
@@ -62,7 +62,7 @@ function setDummyState() {
 		dummySteps,
 		"mexicana",
 		"china",
-		3,
+		3
 	));
 	addRecipeToState(new Recipe(
 		1,
@@ -77,7 +77,7 @@ function setDummyState() {
 		dummySteps,
 		"china",
 		"china",
-		1,
+		1
 	));
 }
 
