@@ -24,7 +24,7 @@ function addOrEditStepInRecipe(recipe, newStep, existingStepIndex) {
 	}
 	// Si el index es indefinido o sea mayor o igual que el numero de pasos,
 	// lo añadimos a la receta como un ingrediente más
-	if (existingStepIndex === undefined || existingStepIndex > newRecipe.steps.length) {
+	if (existingStepIndex === undefined || existingStepIndex >= newRecipe.steps.length) {
 		newRecipe.steps.push(newStep);
 	} else {
 		// Si el index existe, actualizamos el ingrediente que corresponda a la posición indicada
