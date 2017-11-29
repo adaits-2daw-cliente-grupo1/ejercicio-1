@@ -226,3 +226,6 @@ $RECYCLE.BIN/
 
 # Archivos compilados
 build
+
+# CdeStykeSettings
+.idea/codeStyleSettings.xml
