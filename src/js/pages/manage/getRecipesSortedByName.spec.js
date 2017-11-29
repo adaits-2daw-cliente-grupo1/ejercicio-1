@@ -42,7 +42,7 @@ describe("getRecipesSorted", () => {
 		);
 
 		recipeC = new Recipe(
-			2,
+			3,
 			"Almejas",
 			dummyIngredients,
 			dummySteps,
@@ -63,7 +63,7 @@ describe("getRecipesSorted", () => {
 		expect(recipes.length).to.equal(3);
 		expect(recipes[0].name).to.equal("Almejas");
 		expect(recipes[1].name).to.equal("Cacahuetes");
-		expect(recipes[1].name).to.equal("Zanahorias");
+		expect(recipes[2].name).to.equal("Zanahorias");
 	});
 
 	after(() => {

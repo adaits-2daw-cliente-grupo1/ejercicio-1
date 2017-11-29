@@ -8,7 +8,7 @@ const { getState } = require("../../appState");
  */
 function getRecipesRecipesSortedByName() {
 	const RECIPES = getState().recipes;
-	RECIPES.sort((x, y) => x.name.toUpperCase() - y.name.toUpperCase());
+	RECIPES.sort((x, y) => x.name.toUpperCase().localeCompare(y.name.toUpperCase()));
 	return RECIPES;
 }
 
