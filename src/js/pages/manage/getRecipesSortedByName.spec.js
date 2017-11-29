@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const { getRecipesRecipesSortedByName } = require("./getRecipesSortedByName");
+const getRecipesRecipesSortedByName = require("./getRecipesSortedByName");
 const { replaceWholeState, addRecipeToState } = require("../../appState");
 const Recipe = require("../../model/Recipe");
 const Ingredient = require("../../model/Ingredient");
