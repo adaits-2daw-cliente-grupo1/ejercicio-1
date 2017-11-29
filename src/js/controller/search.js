@@ -1,5 +1,6 @@
 const getRecipesByNameOrSteps = require("../pages/search/getRecipesByNameOrSteps");
 const getRecipesBySimilarRecipe = require("../pages/search/getRecipesBySimilarRecipe");
+const getRecipesByTypeOfFood = require("../pages/search/getRecipesByTypeOfFood");
 const recipeToDiv = require("../support/recipeToDiv");
 const { getState } = require("../appState");
 
@@ -70,10 +71,44 @@ function loadSearchBySimilarRecipe() {
 		resultsDiv.style.display = "block";
 	});
 }
+function loadSearchByTypeOfFood() {
+	const button = qs("#search-by-typeOfFood-button");
+	const input = qs("#search-by-typeOfFood-input");
+
+	button.addEventListener("click", () => {
+		const searchText = input.value;
+
+		if (typeof searchText !== "string" || searchText.length === 0) {
+			return;
+		}
+
+		const results = getRecipesByTypeOfFood(searchText);
+
+		// Borrar los resultados de una búsqueda anterior
+		while (resultsOutput.firstChild) {
+			resultsOutput.removeChild(resultsOutput.firstChild);
+		}
+
+		if (results.length === 0) {
+			const p = document.createElement("p");
+			p.textContent = "No se han encontrado recetas";
+
+			resultsOutput.appendChild(p);
+		} else {
+			results
+				.map(recipeToDiv)
+				.forEach(it => resultsOutput.appendChild(it));
+		}
+
+		// Mostrar los resultados
+		resultsDiv.style.display = "block";
+	});
+}
 
 function loadSearchController() {
 	loadSearchByNameOrSteps();
 	loadSearchBySimilarRecipe();
+	loadSearchByTypeOfFood();
 }
 
 module.exports = loadSearchController;
