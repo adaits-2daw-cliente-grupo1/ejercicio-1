@@ -1,8 +1,3 @@
-/* eslint-disable no-unused-vars */
-/**
- Created by Artiaga on 20/10/2017.
- */
-
 // Dependencias externas
 const { expect } = require("chai");
 
