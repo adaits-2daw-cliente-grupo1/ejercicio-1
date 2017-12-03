@@ -28,3 +28,5 @@ function getHighestRatedRecipesByType() {
 	}
 	return BEST_RECIPES;
 }
+
+module.exports = getHighestRatedRecipesByType;
