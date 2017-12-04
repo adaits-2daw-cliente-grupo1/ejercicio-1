@@ -1,4 +1,6 @@
 const getHighestRatedRecipesByChef = require("../pages/manage/getHighestRatedRecipesByChef");
+const getHighestRatedRecipesByType = require("../pages/manage/getHighestRatedRecipesByType");
+
 const recipeToDiv = require("../support/recipeToDiv");
 
 const qs = document.querySelector.bind(document);
@@ -40,8 +42,24 @@ function loadGetHighestRatedRecipesByChef() {
 }
 
 function loadGetHighestRatedRecipesByType() {
-	const button = 	$(qs("#search-get-highest-rated-recipes-by-typeOfFood-button"))
-
+	const button = 	$("#search-get-highest-rated-recipes-by-typeOfFood-button");
+	let type;
+	let name;
+	let rating;
+	button.on("click", () => {
+		const RESULTS = getHighestRatedRecipesByType();
+		$(resultsOutput).empty();
+		if (RESULTS.length() > 0) {
+			for (let i = 0; i < RESULTS.length(); i += 1) {
+				type = `<h3>${RESULTS[0].typeOfFood}</h3>`;
+				name = `<p>${RESULTS[0].name}</p><br>`;
+				rating = `<p>${RESULTS[0].rating}</p>`;
+				$(resultsOutput).append(type, name, rating);
+			}
+		} else {
+			$(resultsOutput).append("<p>No se han encontrado recetas</p>");
+		}
+	});
 }
 
 function loadManageController() {
