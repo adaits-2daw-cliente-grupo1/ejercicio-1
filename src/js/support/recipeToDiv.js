@@ -1,6 +1,6 @@
 const el = document.createElement.bind(document);
 
-function ingredientToLi(ingredientData)  {
+function ingredientToLi(ingredientData) {
 	const li = el("li");
 	li.textContent = `${ingredientData.ingredient.name
 	} | ${ingredientData.quantity}`;
