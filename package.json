@@ -12,7 +12,9 @@
 	},
 	"author": "",
 	"license": "MIT",
-	"dependencies": {},
+	"dependencies": {
+		"jquery": "^3.2.1"
+	},
 	"devDependencies": {
 		"browserify": "^14.4.0",
 		"chai": "^4.1.2",

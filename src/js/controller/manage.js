@@ -39,8 +39,14 @@ function loadGetHighestRatedRecipesByChef() {
 	});
 }
 
+function loadGetHighestRatedRecipesByType() {
+	const button = 	$(qs("#search-get-highest-rated-recipes-by-typeOfFood-button"))
+
+}
+
 function loadManageController() {
 	loadGetHighestRatedRecipesByChef();
+	loadGetHighestRatedRecipesByType();
 }
 
 module.exports = loadManageController;
