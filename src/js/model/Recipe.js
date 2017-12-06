@@ -1,5 +1,6 @@
 const Ingredient = require("./Ingredient");
 
+
 /**
  * Creamos la clase receta.
  */
