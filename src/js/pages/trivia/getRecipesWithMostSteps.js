@@ -6,7 +6,7 @@ function getRecipesWithMostSteps(foodType) {
 	const sortedRecipes = recetas.sort((x, y) => x.steps.length < y.steps.length);
 
 	const result = [];
-	if (foodType === "") {
+	if (!foodType) {
 		for (let i = 0; i < sortedRecipes.length && i < 10; i += 1) {
 			result.push(sortedRecipes[i]);
 		}
