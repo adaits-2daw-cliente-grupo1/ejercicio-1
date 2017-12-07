@@ -25,8 +25,7 @@ gulp.task("build-js", () =>
 	})
 		.bundle()
 		.pipe(toStream("bundle.js"))
-			//todo descomentar la linea de .pipe(streamify(minify()))
-		// .pipe(streamify(minify()))
+		.pipe(streamify(minify()))
 		.pipe(gulp.dest(DESTINATION))
 )
 
