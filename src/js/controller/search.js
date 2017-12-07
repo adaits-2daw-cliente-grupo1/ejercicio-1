@@ -120,6 +120,7 @@ function loadSearchRecipesWithMostSteps() {
 
 		const results = getRecipesWithMostSteps(foodType);
 
+
 		// Borrar los resultados de una búsqueda anterior
 		while (resultsOutput.firstChild) {
 			resultsOutput.removeChild(resultsOutput.firstChild);
