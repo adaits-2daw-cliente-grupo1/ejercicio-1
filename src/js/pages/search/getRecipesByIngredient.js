@@ -14,11 +14,15 @@ function getRecipesByIngredient(ingrediente) {
 	const recetas = getState().recipes;
 
 	const result = [];
-	for (let i = 0; i < recetas.length; i += 1) {
-		for (let j = 0; j < recetas[i].ingredients.length; j += 1) {
-			if (recetas[i].ingredients[j].ingredient.id === ingrediente.ingredient.id) {
-				result.push(recetas[i]);
-				break;
+	if (typeof ingrediente === "object") {
+		for (let i = 0; i < recetas.length; i += 1) {
+			for (let j = 0; j < recetas[i].ingredients.length; j += 1) {
+				if (recetas[i].ingredients[j].ingredient.name.toLowerCase()
+					===
+					ingrediente.ingredient.name.toLowerCase()) {
+					result.push(recetas[i]);
+					break;
+				}
 			}
 		}
 	}
