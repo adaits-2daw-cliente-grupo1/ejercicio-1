@@ -30,22 +30,34 @@ function getHighestRatedRecipesByType() {
 			// añadimos un nuevo objeto correspondiente a la receta actual
 			if (encontrado >= 0) {
 				ratingRecipe = getHigherRating(getRatings(RECIPES[i]));
-				if (BEST_RECIPES_BY_TYPE[encontrado].rating > ratingRecipe) {
+				ratingRecipe = typeof ratingRecipe !== typeof undefined ?
+					ratingRecipe.score : undefined;
+				if (ratingRecipe !== undefined && BEST_RECIPES_BY_TYPE[encontrado].rating > ratingRecipe) {
 					recipeObject.name = RECIPES[i].name;
 					recipeObject.rating = ratingRecipe;
 					BEST_RECIPES_BY_TYPE[encontrado] = recipeObject;
 				}
 			} else {
-				recipeObject.name = RECIPES[i].name;
-				recipeObject.typeOfFood = RECIPES[i].typeOfFood;
-				recipeObject.rating = getHigherRating(getRatings(RECIPES[i]));
-				BEST_RECIPES_BY_TYPE.push(recipeObject);
+				ratingRecipe = getHigherRating(getRatings(RECIPES[i]));
+				ratingRecipe = typeof ratingRecipe !== typeof undefined ?
+					ratingRecipe.score : undefined;
+				if (ratingRecipe !== undefined) {
+					recipeObject.name = RECIPES[i].name;
+					recipeObject.typeOfFood = RECIPES[i].typeOfFood;
+					recipeObject.rating = ratingRecipe;
+					BEST_RECIPES_BY_TYPE.push(recipeObject);
+				}
 			}
 		} else {
-			recipeObject.name = RECIPES[i].name;
-			recipeObject.typeOfFood = RECIPES[i].typeOfFood;
-			recipeObject.rating = getHigherRating(getRatings(RECIPES[i]));
-			BEST_RECIPES_BY_TYPE.push(recipeObject);
+			ratingRecipe = getHigherRating(getRatings(RECIPES[i]));
+			ratingRecipe = typeof ratingRecipe !== typeof undefined ?
+				ratingRecipe.score : undefined;
+			if (ratingRecipe !== undefined) {
+				recipeObject.name = RECIPES[i].name;
+				recipeObject.typeOfFood = RECIPES[i].typeOfFood;
+				recipeObject.rating = ratingRecipe;
+				BEST_RECIPES_BY_TYPE.push(recipeObject);
+			}
 		}
 	}
 	return BEST_RECIPES_BY_TYPE;
