@@ -8,8 +8,7 @@ const { getState } = require("../appState");
 
 const qs = document.querySelector.bind(document);
 
-const resultsDiv = qs("#search-result");
-const resultsOutput = qs("#search-result > #output");
+const resultsDiv = qs(".results");
 
 function loadSearchByNameOrSteps() {
 	const button = qs("#search-by-name-or-steps-button");
@@ -25,23 +24,20 @@ function loadSearchByNameOrSteps() {
 		const results = getRecipesByNameOrSteps(searchText);
 
 		// Borrar los resultados de una búsqueda anterior
-		while (resultsOutput.firstChild) {
-			resultsOutput.removeChild(resultsOutput.firstChild);
+		while (resultsDiv.firstChild) {
+			resultsDiv.removeChild(resultsDiv.firstChild);
 		}
 
 		if (results.length === 0) {
 			const p = document.createElement("p");
 			p.textContent = "No se han encontrado recetas";
 
-			resultsOutput.appendChild(p);
+			resultsDiv.appendChild(p);
 		} else {
 			results
 				.map(recipeToDiv)
-				.forEach(it => resultsOutput.appendChild(it));
+				.forEach(it => resultsDiv.appendChild(it));
 		}
-
-		// Mostrar los resultados
-		resultsDiv.style.display = "block";
 	});
 }
 function loadSearchBySimilarRecipe() {
@@ -54,19 +50,19 @@ function loadSearchBySimilarRecipe() {
 		const results = getRecipesBySimilarRecipe(recipe);
 
 		// Borrar los resultados de una búsqueda anterior
-		while (resultsOutput.firstChild) {
-			resultsOutput.removeChild(resultsOutput.firstChild);
+		while (resultsDiv.firstChild) {
+			resultsDiv.removeChild(resultsDiv.firstChild);
 		}
 
 		if (results.length === 0) {
 			const p = document.createElement("p");
 			p.textContent = "No se han encontrado recetas";
 
-			resultsOutput.appendChild(p);
+			resultsDiv.appendChild(p);
 		} else {
 			results
 				.map(recipeToDiv)
-				.forEach(it => resultsOutput.appendChild(it));
+				.forEach(it => resultsDiv.appendChild(it));
 		}
 
 		// Mostrar los resultados
@@ -87,23 +83,20 @@ function loadSearchByTypeOfFood() {
 		const results = getRecipesByTypeOfFood(searchText);
 
 		// Borrar los resultados de una búsqueda anterior
-		while (resultsOutput.firstChild) {
-			resultsOutput.removeChild(resultsOutput.firstChild);
+		while (resultsDiv.firstChild) {
+			resultsDiv.removeChild(resultsDiv.firstChild);
 		}
 
 		if (results.length === 0) {
 			const p = document.createElement("p");
 			p.textContent = "No se han encontrado recetas";
 
-			resultsOutput.appendChild(p);
+			resultsDiv.appendChild(p);
 		} else {
 			results
 				.map(recipeToDiv)
-				.forEach(it => resultsOutput.appendChild(it));
+				.forEach(it => resultsDiv.appendChild(it));
 		}
-
-		// Mostrar los resultados
-		resultsDiv.style.display = "block";
 	});
 }
 
@@ -122,23 +115,20 @@ function loadSearchRecipesWithMostSteps() {
 
 
 		// Borrar los resultados de una búsqueda anterior
-		while (resultsOutput.firstChild) {
-			resultsOutput.removeChild(resultsOutput.firstChild);
+		while (resultsDiv.firstChild) {
+			resultsDiv.removeChild(resultsDiv.firstChild);
 		}
 
 		if (results.length === 0) {
 			const p = document.createElement("p");
 			p.textContent = "No se han encontrado recetas";
 
-			resultsOutput.appendChild(p);
+			resultsDiv.appendChild(p);
 		} else {
 			results
 				.map(recipeToDiv)
-				.forEach(it => resultsOutput.appendChild(it));
+				.forEach(it => resultsDiv.appendChild(it));
 		}
-
-		// Mostrar los resultados
-		resultsDiv.style.display = "block";
 	});
 }
 
@@ -165,23 +155,20 @@ function loadSearchByIngredient() {
 		const results = getRecipesByIngredient(ingredient);
 
 		// Borrar los resultados de una búsqueda anterior
-		while (resultsOutput.firstChild) {
-			resultsOutput.removeChild(resultsOutput.firstChild);
+		while (resultsDiv.firstChild) {
+			resultsDiv.removeChild(resultsDiv.firstChild);
 		}
 
 		if (results.length === 0) {
 			const p = document.createElement("p");
 			p.textContent = "No se han encontrado recetas";
 
-			resultsOutput.appendChild(p);
+			resultsDiv.appendChild(p);
 		} else {
 			results
 				.map(recipeToDiv)
-				.forEach(it => resultsOutput.appendChild(it));
+				.forEach(it => resultsDiv.appendChild(it));
 		}
-
-		// Mostrar los resultados
-		resultsDiv.style.display = "block";
 	});
 }
 
