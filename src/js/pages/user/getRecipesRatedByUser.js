@@ -11,7 +11,7 @@ function getRecipesRatedByUser(id) {
 			recipesRatedByUser.push(recipe);
 		}
 	}
-	return recipe;
+	return recipesRatedByUser;
 }
 
 module.exports = getRecipesRatedByUser;
