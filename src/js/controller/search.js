@@ -1,6 +1,7 @@
 const getRecipesByNameOrSteps = require("../pages/search/getRecipesByNameOrSteps");
 const getRecipesBySimilarRecipe = require("../pages/search/getRecipesBySimilarRecipe");
 const getRecipesByTypeOfFood = require("../pages/search/getRecipesByTypeOfFood");
+const getRecipesWithMostSteps = require("../pages/trivia/getRecipesWithMostSteps");
 const getRecipesByIngredient = require("../pages/search/getRecipesByIngredient");
 const recipeToDiv = require("../support/recipeToDiv");
 const { getState } = require("../appState");
@@ -99,6 +100,41 @@ function loadSearchByTypeOfFood() {
 	});
 }
 
+function loadSearchRecipesWithMostSteps() {
+	const button = qs("#search-recipes-with-most-steps-button");
+	const input = qs("#search-by-foodType-input");
+
+	button.addEventListener("click", () => {
+		const foodType = input.value.trim().replace(/\s{2,}/g, " ").toLowerCase();
+
+		if (typeof foodType !== "string") {
+			return;
+		}
+
+		const results = getRecipesWithMostSteps(foodType);
+
+
+		// Borrar los resultados de una búsqueda anterior
+		while (resultsOutput.firstChild) {
+			resultsOutput.removeChild(resultsOutput.firstChild);
+		}
+
+		if (results.length === 0) {
+			const p = document.createElement("p");
+			p.textContent = "No se han encontrado recetas";
+
+			resultsOutput.appendChild(p);
+		} else {
+			results
+				.map(recipeToDiv)
+				.forEach(it => resultsOutput.appendChild(it));
+		}
+
+		// Mostrar los resultados
+		resultsDiv.style.display = "block";
+	});
+}
+
 function loadSearchByIngredient() {
 	const button = qs("#search-by-ingredient-name-button");
 	const input = qs("#search-by-ingredient-name-input");
@@ -143,6 +179,7 @@ function loadSearchController() {
 	loadSearchByNameOrSteps();
 	loadSearchBySimilarRecipe();
 	loadSearchByTypeOfFood();
+	loadSearchRecipesWithMostSteps();
 	loadSearchByIngredient();
 }
 
