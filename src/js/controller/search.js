@@ -115,23 +115,20 @@ function loadSearchRecipesWithMostSteps() {
 
 
 		// Borrar los resultados de una búsqueda anterior
-		while (resultsOutput.firstChild) {
-			resultsOutput.removeChild(resultsOutput.firstChild);
+		while (resultsDiv.firstChild) {
+			resultsDiv.removeChild(resultsDiv.firstChild);
 		}
 
 		if (results.length === 0) {
 			const p = document.createElement("p");
 			p.textContent = "No se han encontrado recetas";
 
-			resultsOutput.appendChild(p);
+			resultsDiv.appendChild(p);
 		} else {
 			results
 				.map(recipeToDiv)
-				.forEach(it => resultsOutput.appendChild(it));
+				.forEach(it => resultsDiv.appendChild(it));
 		}
-
-		// Mostrar los resultados
-		resultsDiv.style.display = "block";
 	});
 }
 
