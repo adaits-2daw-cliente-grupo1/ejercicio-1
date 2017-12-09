@@ -3,182 +3,32 @@
 <head>
 	<meta charset="utf-8">
 	<title>Ejercicio 1</title>
+
+	<!--suppress HtmlUnknownTarget -->
+	<link rel="stylesheet" href="./index.css" />
 </head>
 <body>
 	<h1>Easy Recipes</h1>
 
-	<div class="section" id="section-search">
-
-		<h2>Buscar recetas</h2>
-
-		<div id="search-result" style="display: none;">
-
-			<p>Resultados de la búsqueda:</p>
-
-			<div id="output"></div>
-
-		</div>
-
-		<div class="subSection" id="subSection-search-by-name-or-steps">
-
-			<h3>Buscar por nombre o pasos</h3>
-
-			<p>Encuentra todas las recetas según su nombre, o algunos de los
-			pasos de la misma.</p>
-
-			<label for="search-by-name-or-steps-input">
-				Nombre o pasos:
-			</label>
-			<input type="text" id="search-by-name-or-steps-input">
-
-			<button id="search-by-name-or-steps-button">
-				Buscar
-			</button>
-
-		</div>
-		<div class="subSection" id="subSection-search-by-similar-recipe">
-
-			<h3>Buscar por receta similar</h3>
-
-			<p>Encuentra todas las recetas que sean similares al ID de la receta introducida.</p>
-
-			<label for="search-by-similar-recipe-id-input">
-				ID de la receta:
-			</label>
-			<input type="number" id="search-by-similar-recipe-id-input">
-
-			<button id="search-by-similar-recipe-button">
-				Buscar
-			</button>
-
-		</div>
-		<div class="subSection" id="subSection-search-by-typeOfFood">
-
-			<h3>Buscar tipo de comida.</h3>
-
-			<p>Encuentra todas las recetas que contengan el mismo tipo de comida.</p>
-
-			<label for="search-by-typeOfFood-input">
-				Tipo de Comida:
-			</label>
-			<input type="text" id="search-by-typeOfFood-input">
-
-			<button id="search-by-typeOfFood-button">
-				Buscar
-			</button>
-
-		</div>
-
-		<div class="subSection" id="subSection-search-get-highest-rated-recipes-by-chef">
-
-			<h3>Buscar las mejores recetas de un mismo chef</h3>
-
-			<p>Encuentra las 10 recetas con mejor puntuación de un mismo chef,
-				si se introduce el tipo de comida, mostrará las 10 recetas con
-				mejor puntuación de ese tipo de comida.</p>
-
-			<label for="search-by-idAuthor-input">
-				ID del chef:
-			</label>
-			<input type="number" id="search-by-idAuthor-input">
-			<label for="search-by-typeOfFood-idAuthor-input">
-				Tipo de comida:
-			</label>
-			<input type="text" id="search-by-typeOfFood-idAuthor-input">
-			<button id="search-highest-rated-recipes-by-chef-button">
-				Buscar
-			</button>
-
-		</div>
-
-		<div class="subSection" id="subSection-search-by-ingredient">
-
-			<h3>Buscar las recetas que contengan un ingrediente</h3>
-
-			<p>Encuentra todas las recetas que contengan el ingrediente
-				introducido</p>
-
-			<label for="search-by-ingredient-name-input">
-				Nombre del ingrediente:
-			</label>
-			<input type="text" id="search-by-ingredient-name-input">
-			<button id="search-by-ingredient-name-button">
-				Buscar
-			</button>
-
-		</div>
-
-	</div>
-
-
-	<div class="section" id="section-create">
-
-		<h2>Editar Recetas</h2>
-
-		<div id="edit-result" style="display: none;">
-
-			<p>Receta Creada:</p>
-
-			<div class="salida"></div>
-
-		</div>
-
-		<div class="subSection" id="subSection-create-recipes">
-
-			<h3>Crear receta</h3>
-
-			<label for="create-recipe-inputName">
-				Nombre:
-			</label>
-			<input type="text" id="create-recipe-inputName">
-			<br>
-
-			<label>
-				Ingredientes:
-			</label>
-			<br>
-			<div
-				id="create-recipe-ingredients-inputs"
-				style="display: flex; flex-direction: column; width: 200px;">
+	<div class="content">
+		<div class="controllers">
+			<nav class="menu">
+				<div class="menuItem" data-section="search">
+					Buscar
+				</div>
+				<div class="menuItem" data-section="edit">
+					Editar
+				</div>
+			</nav>
+			<div class="sections">
+				<!-- %SECTIONS% -->
 			</div>
-
-			<label>
-				Pasos:
-			</label>
-			<br>
-			<div
-				id="create-recipe-steps-inputs"
-				style="display: flex; flex-direction: column; width: 200px;">
-			</div>
-
-			<label for="create-recipe-inputTypeOfFood">
-				Tipo de comida:
-			</label>
-			<input type="text" id="create-recipe-inputTypeOfFood">
-			<br>
-
-			<label for="create-recipe-inputOrigin">
-				Origen:
-			</label>
-			<input type="text" id="create-recipe-inputOrigin">
-			<br>
-
-			<label for="create-recipe-inputAuthorId">
-				ID del autor:
-			</label>
-			<input type="number" id="create-recipe-inputAuthorId">
-			<br>
-
-			<button id="create-recipe-button">
-				Crear Receta
-			</button>
-
 		</div>
 
+		<div class="results">
+
+		</div>
 	</div>
-
-
-
 
 	<!--suppress HtmlUnknownTarget -->
 	<script type="text/javascript" src="./bundle.js"></script>

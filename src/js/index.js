@@ -1,9 +1,12 @@
+const loadMenuController = require("./controller/menu");
 const loadSearchController = require("./controller/search");
 const loadEditController = require("./controller/edit");
 const loadManageController = require("./controller/manage");
 const { loadStateFromStorage } = require("./storage");
 
 window.addEventListener("load", () => {
+	loadMenuController();
+
 	loadSearchController();
 	loadEditController();
 	loadManageController();
