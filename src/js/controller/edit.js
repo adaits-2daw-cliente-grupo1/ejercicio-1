@@ -6,8 +6,7 @@ const { saveStateToStorage } = require("../storage");
 const qs = document.querySelector.bind(document);
 const qsa = s => Array.from(document.querySelectorAll(s));
 
-const resultsDiv = qs("#edit-result");
-const resultsOutput = qs("#edit-result > .salida");
+const resultsDiv = qs(".results");
 
 function loadCreateRecipe() {
 	const submit = qs("#create-recipe-button");
@@ -21,6 +20,7 @@ function loadCreateRecipe() {
 	 * Si hay inputs de sobra, los borra.
 	 */
 	function updateIngredientInputs(parentId) {
+		debugger;
 		const inputs = qsa(`#${parentId} > input`);
 		const empty = inputs.filter(i => i.value.length === 0).length;
 		const parent = qs(`#${parentId}`);
@@ -71,13 +71,12 @@ function loadCreateRecipe() {
 		);
 
 		if (result.success) {
-			while (resultsOutput.firstChild) {
-				resultsOutput.removeChild(resultsOutput.firstChild);
+			while (resultsDiv.firstChild) {
+				resultsDiv.removeChild(resultsDiv.firstChild);
 			}
 
-			resultsOutput.appendChild(recipeToDiv(result.recipe));
+			resultsDiv.appendChild(recipeToDiv(result.recipe));
 
-			resultsDiv.style.display = "block";
 			saveStateToStorage();
 		} else {
 			// eslint-disable-next-line no-alert

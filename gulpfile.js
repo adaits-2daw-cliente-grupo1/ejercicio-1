@@ -67,6 +67,6 @@ gulp.task("build", ["build-js", "build-html", "build-css"])
 
 gulp.task("watch", () => {
 	gulp.watch("./src/js/**/*.js", ["build-js"])
-	gulp.watch(HTML_SOURCE, ["build-html"])
-	gulp.watch(CSS_SOURCE, ["build-css"])
+	gulp.watch("./src/html/**/*.html", ["build-html"])
+	gulp.watch("./src/css/**/*.css", ["build-css"])
 })
