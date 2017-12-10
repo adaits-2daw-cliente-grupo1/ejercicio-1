@@ -31,7 +31,7 @@ gulp.task("build-js", () =>
 		.bundle()
 		.pipe(toStream("bundle.js"))
 		.pipe(streamify(sourcemaps.init({ loadMaps: true })))
-		.pipe(streamify(minify()))
+		.pipe(streamify(minify({ mangle: false })))
 		.pipe(streamify(sourcemaps.write()))
 		.pipe(gulp.dest(DESTINATION))
 )
@@ -67,6 +67,6 @@ gulp.task("build", ["build-js", "build-html", "build-css"])
 
 gulp.task("watch", () => {
 	gulp.watch("./src/js/**/*.js", ["build-js"])
-	gulp.watch(HTML_SOURCE, ["build-html"])
-	gulp.watch(CSS_SOURCE, ["build-css"])
+	gulp.watch("./src/html/**/*.html", ["build-html"])
+	gulp.watch("./src/css/**/*.css", ["build-css"])
 })

@@ -20,6 +20,7 @@ async function loadSection(name) {
 
 	switch (name) {
 	case "search":
+	case "edit":
 		getState().recipes.forEach(it => $results.append(mapRecipeToDiv(it)));
 		break;
 	default:
