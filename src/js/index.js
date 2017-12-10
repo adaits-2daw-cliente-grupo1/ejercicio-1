@@ -5,10 +5,11 @@ const loadManageController = require("./controller/manage");
 const { loadStateFromStorage } = require("./storage");
 
 window.addEventListener("load", () => {
+	loadStateFromStorage();
+
 	loadMenuController();
 
 	loadSearchController();
 	loadEditController();
 	loadManageController();
-	loadStateFromStorage();
 });
