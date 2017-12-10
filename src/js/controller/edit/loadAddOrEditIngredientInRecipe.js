@@ -30,8 +30,8 @@ function loadAddOrEditIngredientInRecipe() {
 			return;
 		}
 
-		if (!ingredientName) {
-			alert("Por favor, introduce un paso");
+		if (!ingredientName || !ingredientQuantity) {
+			alert("Por favor, introduce un ingrediente");
 			return;
 		}
 
