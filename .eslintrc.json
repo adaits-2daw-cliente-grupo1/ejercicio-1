@@ -10,6 +10,7 @@
 			"off"
 		],
 		"no-console": "error",
+		"no-alert": ["off"],
 		"indent": [
 			"error",
 			"tab"

@@ -129,7 +129,15 @@ function loadStateFromStorage() {
 		const RECIPES = state.recipes;
 		const RATINGS = state.ratings;
 		const USERS = state.users;
-		RECIPES.forEach(x => Object.setPrototypeOf(x, Recipe.prototype));
+		RECIPES.forEach((recipe) => {
+			Object.setPrototypeOf(recipe, Recipe.prototype);
+			recipe.ingredients.forEach((ingredientObject) => {
+				Object.setPrototypeOf(
+					ingredientObject.ingredient,
+					Ingredient.prototype
+				);
+			});
+		});
 		RATINGS.forEach(x => Object.setPrototypeOf(x, Rating.prototype));
 		USERS.forEach(x => Object.setPrototypeOf(x, User.prototype));
 		state = {

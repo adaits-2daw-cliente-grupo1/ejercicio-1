@@ -31,7 +31,7 @@ gulp.task("build-js", () =>
 		.bundle()
 		.pipe(toStream("bundle.js"))
 		.pipe(streamify(sourcemaps.init({ loadMaps: true })))
-		.pipe(streamify(minify()))
+		.pipe(streamify(minify({ mangle: false })))
 		.pipe(streamify(sourcemaps.write()))
 		.pipe(gulp.dest(DESTINATION))
 )

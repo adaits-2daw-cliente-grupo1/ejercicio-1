@@ -1,7 +1,7 @@
-const Ingredient = require("../model/Ingredient");
-const createRecipe = require("../pages/edit/createRecipe.js");
-const recipeToDiv = require("../support/recipeToDiv");
-const { saveStateToStorage } = require("../storage");
+const Ingredient = require("../../model/Ingredient");
+const createRecipe = require("../../pages/edit/createRecipe.js");
+const recipeToDiv = require("../../support/recipeToDiv");
+const { saveStateToStorage } = require("../../storage");
 
 const qs = document.querySelector.bind(document);
 const qsa = s => Array.from(document.querySelectorAll(s));
@@ -20,7 +20,6 @@ function loadCreateRecipe() {
 	 * Si hay inputs de sobra, los borra.
 	 */
 	function updateIngredientInputs(parentId) {
-		debugger;
 		const inputs = qsa(`#${parentId} > input`);
 		const empty = inputs.filter(i => i.value.length === 0).length;
 		const parent = qs(`#${parentId}`);
@@ -85,8 +84,4 @@ function loadCreateRecipe() {
 	});
 }
 
-function loadEditController() {
-	loadCreateRecipe();
-}
-
-module.exports = loadEditController;
+module.exports = loadCreateRecipe;
