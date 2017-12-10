@@ -1,5 +1,5 @@
-const getHighestRatedRecipesByChef = require("../pages/manage/getHighestRatedRecipesByChef");
-const recipeToDiv = require("../support/recipeToDiv");
+const getHighestRatedRecipesByChef = require("../../pages/manage/getHighestRatedRecipesByChef");
+const recipeToDiv = require("../../support/recipeToDiv");
 
 const qs = document.querySelector.bind(document);
 
@@ -39,8 +39,4 @@ function loadGetHighestRatedRecipesByChef() {
 	});
 }
 
-function loadManageController() {
-	loadGetHighestRatedRecipesByChef();
-}
-
-module.exports = loadManageController;
+module.exports = loadGetHighestRatedRecipesByChef;
