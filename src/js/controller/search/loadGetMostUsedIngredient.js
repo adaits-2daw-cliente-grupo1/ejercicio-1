@@ -1,5 +1,4 @@
 const getMostUsedIngredient = require("../../pages/trivia/getMostUsedIngredient");
-const recipeToDiv = require("../../support/recipeToDiv");
 const ingredientToDiv = require("../../support/ingredientToDiv");
 
 const qs = document.querySelector.bind(document);
