@@ -70,3 +70,4 @@ function recipeToDiv(recipe) {
 }
 
 module.exports = recipeToDiv;
+
