@@ -117,7 +117,7 @@ function saveInitialStateToStorage() {
 			"Fantastico",
 			9,
 			1,
-			2
+			3
 		),
 		new Rating(
 			3,

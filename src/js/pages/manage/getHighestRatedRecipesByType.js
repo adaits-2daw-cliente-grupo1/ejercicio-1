@@ -1,4 +1,3 @@
-
 const { getState } = require("../../appState");
 const getRatings = require("../../support/getRatings");
 
@@ -17,6 +16,7 @@ function getHighestRatedRecipesByType() {
 	const BEST_RECIPES_BY_TYPE = [];
 	const recipeObject = { name: "", typeOfFood: "", rating: 0 };
 	let encontrado;
+
 	// Recorremos las recetas
 	for (let i = 0; i < RECIPES.length; i += 1) {
 		// Si el tamaño del array de las mejores recetas es 0, la primera
@@ -33,31 +33,32 @@ function getHighestRatedRecipesByType() {
 				ratingRecipe = getHigherRating(getRatings(RECIPES[i]));
 				ratingRecipe = typeof ratingRecipe !== typeof undefined ?
 					ratingRecipe.score : undefined;
-				if (ratingRecipe !== undefined && BEST_RECIPES_BY_TYPE[encontrado].rating > ratingRecipe) {
+				if (typeof ratingRecipe !== typeof undefined &&
+					BEST_RECIPES_BY_TYPE[encontrado].rating > ratingRecipe) {
 					recipeObject.name = RECIPES[i].name;
 					recipeObject.rating = ratingRecipe;
-					BEST_RECIPES_BY_TYPE[encontrado] = recipeObject;
+					BEST_RECIPES_BY_TYPE[encontrado] = Object.assign({}, recipeObject);
 				}
 			} else {
 				ratingRecipe = getHigherRating(getRatings(RECIPES[i]));
 				ratingRecipe = typeof ratingRecipe !== typeof undefined ?
 					ratingRecipe.score : undefined;
-				if (ratingRecipe !== undefined) {
+				if (typeof ratingRecipe !== typeof undefined) {
 					recipeObject.name = RECIPES[i].name;
 					recipeObject.typeOfFood = RECIPES[i].typeOfFood;
 					recipeObject.rating = ratingRecipe;
-					BEST_RECIPES_BY_TYPE.push(recipeObject);
+					BEST_RECIPES_BY_TYPE.push(Object.assign({}, recipeObject));
 				}
 			}
 		} else {
 			ratingRecipe = getHigherRating(getRatings(RECIPES[i]));
 			ratingRecipe = typeof ratingRecipe !== typeof undefined ?
 				ratingRecipe.score : undefined;
-			if (ratingRecipe !== undefined) {
+			if (typeof ratingRecipe !== typeof undefined) {
 				recipeObject.name = RECIPES[i].name;
 				recipeObject.typeOfFood = RECIPES[i].typeOfFood;
 				recipeObject.rating = ratingRecipe;
-				BEST_RECIPES_BY_TYPE.push(recipeObject);
+				BEST_RECIPES_BY_TYPE.push(Object.assign({}, recipeObject));
 			}
 		}
 	}
