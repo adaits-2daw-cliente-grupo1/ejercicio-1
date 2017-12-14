@@ -41,22 +41,22 @@ function recipeToDiv(recipe) {
 	const ingredientsLi = el("li");
 	ingredientsLi.textContent = "Ingredientes:";
 
-	const ingredientsUl = el("ul");
+	const ingredientsOl = el("ol");
 	recipe.ingredients
 		.map(ingredientToLi)
-		.forEach(it => ingredientsUl.appendChild(it));
+		.forEach(it => ingredientsOl.appendChild(it));
 
-	ingredientsLi.appendChild(ingredientsUl);
+	ingredientsLi.appendChild(ingredientsOl);
 
 	const stepsLi = el("li");
 	stepsLi.textContent = "Pasos:";
 
-	const stepsUl = el("ul");
+	const stepsOl = el("ol");
 	recipe.steps
 		.map(stepToLi)
-		.forEach(it => stepsUl.appendChild(it));
+		.forEach(it => stepsOl.appendChild(it));
 
-	stepsLi.appendChild(stepsUl);
+	stepsLi.appendChild(stepsOl);
 
 	attributeList.appendChild(originLi);
 	attributeList.appendChild(typeLi);

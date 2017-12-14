@@ -2,11 +2,15 @@
 	"extends": "airbnb-base",
 	"env": {
 		"browser": true,
-		"mocha": true
+		"mocha": true,
+		"jquery": true
 	},
 	"rules": {
-		"no-tabs": ["off"],
+		"no-tabs": [
+			"off"
+		],
 		"no-console": "error",
+		"no-alert": ["off"],
 		"indent": [
 			"error",
 			"tab"

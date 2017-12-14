@@ -1,0 +1,145 @@
+<h2>Editar Recetas</h2>
+
+<div id="edit-result" style="display: none;">
+
+	<p>Receta Creada:</p>
+
+	<div class="salida"></div>
+
+</div>
+
+<div class="subSection" id="subSection-create-recipes">
+
+	<h3>Crear receta</h3>
+
+	<label for="create-recipe-inputName">
+		Nombre:
+	</label>
+	<input type="text" id="create-recipe-inputName">
+	<br>
+
+	<label>
+		Ingredientes:
+	</label>
+	<br>
+	<div
+		id="create-recipe-ingredients-inputs"
+		style="display: flex; flex-direction: column; width: 200px;">
+	</div>
+
+	<label>
+		Pasos:
+	</label>
+	<br>
+	<div
+		id="create-recipe-steps-inputs"
+		style="display: flex; flex-direction: column; width: 200px;">
+	</div>
+
+	<label for="create-recipe-inputTypeOfFood">
+		Tipo de comida:
+	</label>
+	<input type="text" id="create-recipe-inputTypeOfFood">
+	<br>
+
+	<label for="create-recipe-inputOrigin">
+		Origen:
+	</label>
+	<input type="text" id="create-recipe-inputOrigin">
+	<br>
+
+	<label for="create-recipe-inputAuthorId">
+		ID del autor:
+	</label>
+	<input type="number" id="create-recipe-inputAuthorId">
+	<br>
+
+	<button id="create-recipe-button">
+		Crear Receta
+	</button>
+
+</div>
+
+<div class="subSection" id="subSection-add-step">
+
+	<h3>Añadir o editar un paso de una receta</h3>
+
+	<label for="add-step-recipe-id">
+		ID de receta:
+	</label>
+	<input type="number" id="add-step-recipe-id">
+	<br>
+
+	<label for="add-step-step">
+		Nuevo paso:
+	</label>
+	<input type="text" id="add-step-step">
+	<br>
+
+	<label for="add-step-existing-step-number">
+		Número del paso existente (opcional):
+	</label>
+	<input type="number" id="add-step-existing-step-number">
+	<br>
+
+	<button id="add-step-button">
+		Añadir/Editar paso
+	</button>
+
+</div>
+
+<div class="subSection" id="subSection-add-ingredient">
+
+	<h3>Añadir o editar un ingrediente de una receta</h3>
+
+	<label for="add-ingredient-recipe-id">
+		ID de receta:
+	</label>
+	<input type="number" id="add-ingredient-recipe-id">
+	<br>
+
+	<label for="add-ingredient-name">
+		Nombre del nuevo ingrediente:
+	</label>
+	<input type="text" id="add-ingredient-name">
+	<br>
+
+	<label for="add-ingredient-quantity">
+		Cantidad del nuevo ingrediente:
+	</label>
+	<input type="text" id="add-ingredient-quantity">
+	<br>
+
+	<label for="add-ingredient-existing-ingredient-number">
+		Número del ingrediente existente (opcional):
+	</label>
+	<input type="number" id="add-ingredient-existing-ingredient-number">
+	<br>
+
+	<button id="add-ingredient-button">
+		Añadir/Editar ingrediente
+	</button>
+
+</div>
+
+<div class="subSection" id="subSection-edit-type-of-food">
+
+	<h3>Editar el tipo de comida de una receta</h3>
+
+	<label for="edit-type-of-food-recipe-id">
+		ID de receta:
+	</label>
+	<input type="number" id="edit-type-of-food-recipe-id">
+	<br>
+
+	<label for="edit-type-of-food-new-value">
+		Nuevo tipo de comida:
+	</label>
+	<input type="text" id="edit-type-of-food-new-value">
+	<br>
+
+	<button id="edit-type-of-food-button">
+		Editar tipo de comida
+	</button>
+
+</div>

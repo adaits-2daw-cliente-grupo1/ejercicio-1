@@ -1,10 +1,9 @@
-const getHighestRatedRecipesByChef = require("../pages/manage/getHighestRatedRecipesByChef");
-const recipeToDiv = require("../support/recipeToDiv");
+const getHighestRatedRecipesByChef = require("../../pages/manage/getHighestRatedRecipesByChef");
+const recipeToDiv = require("../../support/recipeToDiv");
 
 const qs = document.querySelector.bind(document);
 
-const resultsDiv = qs("#search-result");
-const resultsOutput = qs("#search-result > #output");
+const resultsDiv = qs(".results");
 
 function loadGetHighestRatedRecipesByChef() {
 	const button = qs("#search-highest-rated-recipes-by-chef-button");
@@ -19,28 +18,21 @@ function loadGetHighestRatedRecipesByChef() {
 		const results = getHighestRatedRecipesByChef(idAuthor, typeOfFood);
 
 		// Borrar los resultados de una búsqueda anterior
-		while (resultsOutput.firstChild) {
-			resultsOutput.removeChild(resultsOutput.firstChild);
+		while (resultsDiv.firstChild) {
+			resultsDiv.removeChild(resultsDiv.firstChild);
 		}
 
 		if (results.length === 0) {
 			const p = document.createElement("p");
 			p.textContent = "No se han encontrado recetas";
 
-			resultsOutput.appendChild(p);
+			resultsDiv.appendChild(p);
 		} else {
 			results
 				.map(recipeToDiv)
-				.forEach(it => resultsOutput.appendChild(it));
+				.forEach(it => resultsDiv.appendChild(it));
 		}
-
-		// Mostrar los resultados
-		resultsDiv.style.display = "block";
 	});
 }
 
-function loadManageController() {
-	loadGetHighestRatedRecipesByChef();
-}
-
-module.exports = loadManageController;
+module.exports = loadGetHighestRatedRecipesByChef;
