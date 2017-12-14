@@ -116,8 +116,10 @@ function getRecipesSorted(algorithm) {
 	return recipes;
 }
 
-module.exports = {
-	quickSort,
-	getRecipesSorted,
-	mergeSorted
-};
+module.exports = getRecipesSorted;
+//
+// module.exports = {
+// 	quickSort,
+// 	getRecipesSorted,
+// 	mergeSorted
+// };
