@@ -33,3 +33,7 @@ body {
 .section {
 	display: none;
 }
+
+.error{
+	background-color: red;
+}
