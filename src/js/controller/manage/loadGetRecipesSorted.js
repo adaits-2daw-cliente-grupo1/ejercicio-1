@@ -1,4 +1,4 @@
-const getRecipesSorted = require("../../pages/manage/getRecipesSorted");
+const { getRecipesSorted } = require("../../pages/manage/getRecipesSorted");
 const recipeToDiv = require("../../support/recipeToDiv");
 
 const qs = document.querySelector.bind(document);
