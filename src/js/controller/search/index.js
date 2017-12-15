@@ -4,6 +4,7 @@ const loadSearchByTypeOfFood = require("./loadSearchByTypeOfFood");
 const loadSearchRecipesWithMostSteps = require("./loadSearchRecipesWithMostSteps");
 const loadSearchByIngredient = require("./loadSearchByIngredient");
 const loadGetMostUsedIngredient = require("./loadGetMostUsedIngredient");
+const loadSearchRecipesWithMostIngredients = require("./loadSearchRecipesWithMostIngredients");
 
 function loadSearchController() {
 	loadSearchByNameOrSteps();
@@ -12,6 +13,7 @@ function loadSearchController() {
 	loadSearchRecipesWithMostSteps();
 	loadSearchByIngredient();
 	loadGetMostUsedIngredient();
+	loadSearchRecipesWithMostIngredients();
 }
 
 module.exports = loadSearchController;
