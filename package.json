@@ -8,6 +8,7 @@
 		"watch": "gulp watch",
 		"lint": "eslint ./src/js/**/*.js",
 		"test": "mocha ./src/js/**/**/**/**/**/**/**/**/**/**/**/**.spec.js",
+		"deploy": "./gh-pages-deploy.sh",
 		"prepush": "npm run lint && npm run test"
 	},
 	"author": "",
