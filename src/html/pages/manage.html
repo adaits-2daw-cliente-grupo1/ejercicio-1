@@ -34,15 +34,19 @@
 
 </div>
 
-<div class="subSection"
-	 id="subSection-search-highest-rated-recipes-by-typeOfFood">
+<div class="subSection" id="subSection-sort-recipes">
 
-	<h3>Buscar las mejores recetas por tipo de comida</h3>
+	<h3>Ordenar las recetas</h3>
 
-	<p>Encuentra todas las recetas que contengan el ingrediente
-		introducido</p>
+	<p>Ordena las recetas por el nombre o la puntuación de la receta, pero
+		aplicando el algoritmo de quicksort o mergesort, dependiendo de lo que
+		se indique el select.</p>
 
-	<button id="search-get-highest-rated-recipes-by-typeOfFood-button">
+	<select id="sort-recipes-select">
+		<option value="quicksort">Quicksort</option>
+		<option value="mergesort">Mergesort</option>
+	</select>
+	<button id="sort-recipes-button">
 		Buscar
 	</button>
 

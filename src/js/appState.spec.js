@@ -48,7 +48,7 @@ describe("appState", () => {
 			"china",
 			1
 		);
-		dummyUser = new User(1, "Pablo");
+		dummyUser = new User(1, "Pablo", "pablo123");
 		dummyRating = new Rating(
 			1,
 			"Me encanta",
@@ -183,10 +183,12 @@ describe("appState", () => {
 
 		it("editUserInState debería rechazar recetas que no existen en el" +
 			" estado", () => {
-			const dummyUser2 = new User(2, "Pepe");
+			const dummyUser2 = new User(2, "Pepe", "pablo123");
 
 			expect(() => editUserInState(dummyUser2)).to.throw();
 		});
+
+		it("replaceLoggedInUser debería remplazar el usuario logeado");
 
 		it("replaceWholeState debería remplazar el estado", () => {
 			replaceWholeState({

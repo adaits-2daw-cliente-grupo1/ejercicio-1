@@ -127,7 +127,7 @@ function saveInitialStateToStorage() {
 			1
 		)
 	];
-	const USERS = [new User(1, "Pablo")];
+	const USERS = [new User(1, "Pablo", "pablo123")];
 	const STATE = Object({
 		recipes: RECIPES,
 		ratings: RATINGS,
