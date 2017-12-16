@@ -19,7 +19,7 @@ function getMostUsedIngredient(foodType = "") {
 			.forEach(ingrediente => ingredientes.push(ingrediente.ingredient.name.trim().toLowerCase())));
 	}
 
-	const frequency = {}; // array of frequency.
+	const frequency = {};
 	let max = 0; // holds the max frequency.
 	// Recorre el array de ingredientes para comprobar cual es el que mas se
 	// repite
