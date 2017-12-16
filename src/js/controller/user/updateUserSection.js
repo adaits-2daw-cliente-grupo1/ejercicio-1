@@ -5,6 +5,10 @@ const $results = $(".results");
 const $signUpSection = $("#subSection-user-signup");
 const $logInSection = $("#subSection-user-login");
 const $logOutSection = $("#subSection-user-logout");
+const $addRatingSection = $("#subSection-user-add-rating");
+
+const publicSections = [$signUpSection, $logInSection];
+const privateSections = [$logOutSection, $addRatingSection];
 
 function updateUserSection() {
 	const { loggedInUser } = getState();
@@ -13,17 +17,13 @@ function updateUserSection() {
 		$results.html(`<p>Se ha iniciado sesión como: 
 			${loggedInUser.nombre}</p>`);
 
-		$logInSection.fadeOut();
-		$signUpSection.fadeOut();
-
-		$logOutSection.fadeIn();
+		publicSections.forEach(it => it.fadeOut());
+		privateSections.forEach(it => it.fadeIn());
 	} else {
 		$results.html("<p>No se ha iniciado sesión</p>");
 
-		$logInSection.fadeIn();
-		$signUpSection.fadeIn();
-
-		$logOutSection.fadeOut();
+		publicSections.forEach(it => it.fadeIn());
+		privateSections.forEach(it => it.fadeOut());
 	}
 }
 
