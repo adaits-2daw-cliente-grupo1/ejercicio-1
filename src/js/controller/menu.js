@@ -1,5 +1,6 @@
 const $ = require("jquery");
 const { getState } = require("../appState");
+const updateUserSection = require("./user/updateUserSection");
 const mapRecipeToDiv = require("../support/recipeToDiv");
 
 const hideCurrentVisibleSection = () => new Promise((resolve) => {
@@ -22,6 +23,9 @@ async function loadSection(name) {
 	case "search":
 	case "edit":
 		getState().recipes.forEach(it => $results.append(mapRecipeToDiv(it)));
+		break;
+	case "user":
+		updateUserSection();
 		break;
 	default:
 	}

@@ -6,8 +6,13 @@ const {
 } = require("../../appState");
 
 function signUp(username, password) {
-	const id = getState()
-		.users
+	const { users } = getState();
+
+	if (users.find(it => it.nombre === username)) {
+		throw new Error("El nombre de usuario ya existe");
+	}
+
+	const id = users
 		.reduce((acc, user) => (acc > user.id ? acc : user.id), 0) + 1;
 
 	const user = new User(id, username, password);

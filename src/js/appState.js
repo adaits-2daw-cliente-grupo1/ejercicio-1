@@ -161,7 +161,7 @@ function editUserInState(user) {
  * iniciado sesión.
  */
 function replaceLoggedInUser(user) {
-	if (user === null) {
+	if (!user) {
 		state.loggedInUser = null;
 	} else {
 		if (!(user instanceof User)) {

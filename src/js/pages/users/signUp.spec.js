@@ -22,6 +22,10 @@ describe("getHightestRatedRecipesByChef", () => {
 		expect(users).to.deep.contain(loggedInUser);
 	});
 
+	it("no debería permitir dos usuarios con el mismo nombre", () => {
+		expect(() => signUp("pepito", "pepito456")).to.throw();
+	});
+
 	after(() => {
 		// Dejamos el estado como estaba por si lo necesita otro test
 		replaceWholeState();
