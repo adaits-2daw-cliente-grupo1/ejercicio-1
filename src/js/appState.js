@@ -7,19 +7,21 @@ const User = require("./model/User");
  * @property {Recipe[]} recipes
  * @property {Rating[]} ratings
  * @property {User[]} users
+ * @property {User|null} loggedInUser
  */
 
 const DEFAULT_STATE = Object.freeze({
 	recipes: [],
 	ratings: [],
 	users: [],
+	loggedInUser: null
 });
 
 /** @type State */
 let state = DEFAULT_STATE;
 
 /**
- * @returns State Una copia del estado de la aplicación. El estado de la
+ * @returns {State} Una copia del estado de la aplicación. El estado de la
  * aplicación es inmutable, es decir, cualquier cambio realizado en getState()
  * no se verá reflejado en el estado. Para modificarlo, hay que usar las
  * funciones proporcionadas en appState.js
@@ -33,7 +35,8 @@ function getState() {
 	return {
 		recipes: state.recipes.map(clone),
 		ratings: state.ratings.map(clone),
-		users: state.users.map(clone)
+		users: state.users.map(clone),
+		loggedInUser: state.loggedInUser && clone(state.loggedInUser)
 	};
 }
 
@@ -153,6 +156,29 @@ function editUserInState(user) {
 }
 
 /**
+ * Reemplaza el usuario logeado actual
+ * @param {User|null} user El nuevo usuario logeado, o null si no se ha
+ * iniciado sesión.
+ */
+function replaceLoggedInUser(user) {
+	if (user === null) {
+		state.loggedInUser = null;
+	} else {
+		if (!(user instanceof User)) {
+			throw new Error("El objeto pasado a replaceLoggedInUser no es un" +
+				" User");
+		}
+
+		if (!(state.users.find(it => it.id === user.id))) {
+			throw new Error("El usuario pasado a replaceLoggedInUser no" +
+				" existe en el estado actual");
+		}
+
+		state.loggedInUser = user;
+	}
+}
+
+/**
  * Reemplaza el estado actual por un nuevo estado.
  *
  * ¡ATENCIÓN!
@@ -174,5 +200,6 @@ module.exports = {
 	editRecipeInState,
 	editRatingInState,
 	editUserInState,
+	replaceLoggedInUser,
 	replaceWholeState
 };
