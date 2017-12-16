@@ -18,7 +18,6 @@ function loadGetMostUsedIngredient() {
 
 		const result = getMostUsedIngredient(foodType);
 
-
 		// Borrar los resultados de una búsqueda anterior
 		while (resultsDiv.firstChild) {
 			resultsDiv.removeChild(resultsDiv.firstChild);
