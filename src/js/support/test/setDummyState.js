@@ -49,7 +49,7 @@ function setDummyState() {
 		2
 	));
 	addRecipeToState(new Recipe(
-		1,
+		3,
 		"Recipe3",
 		[
 			jamon,
@@ -65,7 +65,7 @@ function setDummyState() {
 		3
 	));
 	addRecipeToState(new Recipe(
-		1,
+		4,
 		"Recipe4",
 		[
 			nata,

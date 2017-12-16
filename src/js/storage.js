@@ -111,6 +111,20 @@ function saveInitialStateToStorage() {
 			10,
 			1,
 			2
+		),
+		new Rating(
+			2,
+			"Fantastico",
+			9,
+			1,
+			3
+		),
+		new Rating(
+			3,
+			"Perfecto",
+			10,
+			1,
+			1
 		)
 	];
 	const USERS = [new User(1, "Pablo", "pablo123")];
