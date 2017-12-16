@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Ejercicio 1</title>
+
+	<!--suppress HtmlUnknownTarget -->
+	<link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+	<h1>Easy Recipes</h1>
+
+	<div class="content">
+		<div class="controllers">
+			<nav class="menu">
+				<div class="menuItem" data-section="search">
+					Buscar
+				</div>
+				<div class="menuItem" data-section="edit">
+					Editar
+				</div>
+				<div class="menuItem" data-section="manage">
+					Gestionar
+				</div>
+				<div class="menuItem" data-section="trivia">
+					Curiosidades
+				</div>
+				<div class="menuItem" data-section="user">
+					Usuario
+				</div>
+			</nav>
+			<div class="sections">
+				<div class="section" id="section-edit">
+				<h2>Editar Recetas</h2>
+
+<div id="edit-result" style="display: none;">
+
+	<p>Receta Creada:</p>
+
+	<div class="salida"></div>
+
+</div>
+
+<div class="subSection" id="subSection-create-recipes">
+
+	<h3>Crear receta</h3>
+
+	<label for="create-recipe-inputName">
+		Nombre:
+	</label>
+	<input type="text" id="create-recipe-inputName">
+	<br>
+
+	<label>
+		Ingredientes:
+	</label>
+	<br>
+	<div
+		id="create-recipe-ingredients-inputs"
+		style="display: flex; flex-direction: column; width: 200px;">
+	</div>
+
+	<label>
+		Pasos:
+	</label>
+	<br>
+	<div
+		id="create-recipe-steps-inputs"
+		style="display: flex; flex-direction: column; width: 200px;">
+	</div>
+
+	<label for="create-recipe-inputTypeOfFood">
+		Tipo de comida:
+	</label>
+	<input type="text" id="create-recipe-inputTypeOfFood">
+	<br>
+
+	<label for="create-recipe-inputOrigin">
+		Origen:
+	</label>
+	<input type="text" id="create-recipe-inputOrigin">
+	<br>
+
+	<label for="create-recipe-inputAuthorId">
+		ID del autor:
+	</label>
+	<input type="number" id="create-recipe-inputAuthorId">
+	<br>
+
+	<button id="create-recipe-button">
+		Crear Receta
+	</button>
+
+</div>
+
+<div class="subSection" id="subSection-add-step">
+
+	<h3>Añadir o editar un paso de una receta</h3>
+
+	<label for="add-step-recipe-id">
+		ID de receta:
+	</label>
+	<input type="number" id="add-step-recipe-id">
+	<br>
+
+	<label for="add-step-step">
+		Nuevo paso:
+	</label>
+	<input type="text" id="add-step-step">
+	<br>
+
+	<label for="add-step-existing-step-number">
+		Número del paso existente (opcional):
+	</label>
+	<input type="number" id="add-step-existing-step-number">
+	<br>
+
+	<button id="add-step-button">
+		Añadir/Editar paso
+	</button>
+
+</div>
+
+<div class="subSection" id="subSection-add-ingredient">
+
+	<h3>Añadir o editar un ingrediente de una receta</h3>
+
+	<label for="add-ingredient-recipe-id">
+		ID de receta:
+	</label>
+	<input type="number" id="add-ingredient-recipe-id">
+	<br>
+
+	<label for="add-ingredient-name">
+		Nombre del nuevo ingrediente:
+	</label>
+	<input type="text" id="add-ingredient-name">
+	<br>
+
+	<label for="add-ingredient-quantity">
+		Cantidad del nuevo ingrediente:
+	</label>
+	<input type="text" id="add-ingredient-quantity">
+	<br>
+
+	<label for="add-ingredient-existing-ingredient-number">
+		Número del ingrediente existente (opcional):
+	</label>
+	<input type="number" id="add-ingredient-existing-ingredient-number">
+	<br>
+
+	<button id="add-ingredient-button">
+		Añadir/Editar ingrediente
+	</button>
+
+</div>
+
+<div class="subSection" id="subSection-edit-type-of-food">
+
+	<h3>Editar el tipo de comida de una receta</h3>
+
+	<label for="edit-type-of-food-recipe-id">
+		ID de receta:
+	</label>
+	<input type="number" id="edit-type-of-food-recipe-id">
+	<br>
+
+	<label for="edit-type-of-food-new-value">
+		Nuevo tipo de comida:
+	</label>
+	<input type="text" id="edit-type-of-food-new-value">
+	<br>
+
+	<button id="edit-type-of-food-button">
+		Editar tipo de comida
+	</button>
+
+</div>
+			</div>
+<div class="section" id="section-manage">
+				<h2>Gestionar recetas</h2>
+
+<div class="subSection" id="subSection-search-get-highest-rated-recipes-by-chef">
+
+	<h3>Buscar las mejores recetas de un mismo chef</h3>
+
+	<p>Encuentra las 10 recetas con mejor puntuación de un mismo chef,
+		si se introduce el tipo de comida, mostrará las 10 recetas con
+		mejor puntuación de ese tipo de comida.</p>
+
+	<label for="search-by-idAuthor-input">
+		ID del chef:
+	</label>
+	<input type="number" id="search-by-idAuthor-input">
+	<label for="search-by-typeOfFood-idAuthor-input">
+		Tipo de comida:
+	</label>
+	<input type="text" id="search-by-typeOfFood-idAuthor-input">
+	<button id="search-highest-rated-recipes-by-chef-button">
+		Buscar
+	</button>
+
+</div>
+
+<div class="subSection" id="subSection-sort-recipes-by-name">
+
+	<h3>Ordenar las recetas por nombre</h3>
+
+	<p>Recupera una lista de recetas ordenadas por nombre.</p>
+
+	<button id="sort-recipes-by-name-button">
+		Buscar
+	</button>
+
+</div>
+
+<div class="subSection" id="subSection-sort-recipes">
+
+	<h3>Ordenar las recetas</h3>
+
+	<p>Ordena las recetas por el nombre o la puntuación de la receta, pero
+		aplicando el algoritmo de quicksort o mergesort, dependiendo de lo que
+		se indique el select.</p>
+
+	<select id="sort-recipes-select">
+		<option value="quicksort">Quicksort</option>
+		<option value="mergesort">Mergesort</option>
+	</select>
+	<button id="sort-recipes-button">
+		Buscar
+	</button>
+
+</div>
+			</div>
+<div class="section" id="section-search">
+				<h2>Buscar recetas</h2>
+
+<div class="subSection" id="subSection-search-by-name-or-steps">
+
+	<h3>Buscar por nombre o pasos</h3>
+
+	<p>Encuentra todas las recetas según su nombre, o algunos de los
+		pasos de la misma.</p>
+
+	<label for="search-by-name-or-steps-input">
+		Nombre o pasos:
+	</label>
+	<input type="text" id="search-by-name-or-steps-input">
+
+	<button id="search-by-name-or-steps-button">
+		Buscar
+	</button>
+
+</div>
+<div class="subSection" id="subSection-search-by-similar-recipe">
+
+	<h3>Buscar por receta similar</h3>
+
+	<p>Encuentra todas las recetas que sean similares al ID de la receta introducida.</p>
+
+	<label for="search-by-similar-recipe-id-input">
+		ID de la receta:
+	</label>
+	<input type="number" id="search-by-similar-recipe-id-input">
+
+	<button id="search-by-similar-recipe-button">
+		Buscar
+	</button>
+
+</div>
+<div class="subSection" id="subSection-search-by-typeOfFood">
+
+	<h3>Buscar tipo de comida.</h3>
+
+	<p>Encuentra todas las recetas que contengan el mismo tipo de comida.</p>
+
+	<label for="search-by-typeOfFood-input">
+		Tipo de Comida:
+	</label>
+	<input type="text" id="search-by-typeOfFood-input">
+
+	<button id="search-by-typeOfFood-button">
+		Buscar
+	</button>
+
+</div>
+
+<div class="subSection" id="subSection-search-by-ingredient">
+
+	<h3>Buscar las recetas que contengan un ingrediente</h3>
+
+	<p>Encuentra todas las recetas que contengan el ingrediente
+		introducido</p>
+
+	<label for="search-by-ingredient-name-input">
+		Nombre del ingrediente:
+	</label>
+	<input type="text" id="search-by-ingredient-name-input">
+	<button id="search-by-ingredient-name-button">
+		Buscar
+	</button>
+
+</div>
+
+			</div>
+<div class="section" id="section-trivia">
+				<h2>Curiosidades gastronómicas</h2>
+
+<div class="subSection"
+	 id="subSection-search-get-recipes-with-most-steps">
+
+	<h3>Obtener las 10 recetas con mas pasos</h3>
+
+	<p>Encuentra las 10 recetas con mayor número de pasos.
+		Si se ha especificado un tipo de comida, deberá obtener sólo a
+		las de ese tipo, en caso contrario, obtener de todos los tipos.</p>
+
+	<label for="search-by-foodType-input">
+		Tipo de comida:
+	</label>
+	<input type="text" id="search-by-foodType-input">
+	<button id="search-recipes-with-most-steps-button">
+		Buscar
+	</button>
+
+</div>
+
+<div class="subSection"
+	 id="subSection-search-get-most-used-ingredient">
+
+	<h3>Obtener el ingrediente más usado</h3>
+
+	<p>Obtiene el ingrediente más usado.
+		Si se ha especificado un tipo de comida, obtiene el ingrediente más
+		usado en ese tipo de comida,en caso contrario, obtener de todos los
+		tipos.</p>
+
+	<label for="search-most-used-ingredient-by-type-input">
+		Tipo de comida:
+	</label>
+	<input type="text" id="search-most-used-ingredient-by-type-input">
+	<button id="search-most-used-ingredient-button">
+		Buscar
+	</button>
+
+</div>
+
+<div class="subSection"
+	 id="subSection-search-get-recipes-with-most-ingredients">
+
+	<h3>Obtener las 10 recetas con mas ingredientes</h3>
+
+	<p>Encuentra las 10 recetas con mayor número de ingredientes.
+		Si se ha especificado un tipo de comida, deberá obtener sólo a
+		las de ese tipo, en caso contrario, obtener de todos los tipos.</p>
+
+	<label for="search-recipes-by-foodType-input">
+		Tipo de comida:
+	</label>
+	<input type="text" id="search-recipes-by-foodType-input">
+	<button id="search-recipes-with-most-ingredients-button">
+		Buscar
+	</button>
+
+</div>
+			</div>
+<div class="section" id="section-user">
+				<h2>Área de usuario</h2>
+
+<div class="subSection"
+	 id="subSection-user-login">
+
+	<h3>Iniciar sesión</h3>
+
+	<label for="login-user">
+		Nombre de usuario:
+	</label>
+	<input type="text" id="login-user">
+	<br />
+
+	<label for="login-pass">
+		Contraseña:
+	</label>
+	<input type="password" id="login-pass">
+	<br />
+
+	<button id="login-button">
+		Iniciar sesión
+	</button>
+
+</div>
+
+<div class="subSection"
+	 id="subSection-user-signup">
+
+	<h3>Registrarse</h3>
+
+	<label for="signup-user">
+		Nombre de usuario:
+	</label>
+	<input type="text" id="signup-user">
+	<br />
+
+	<label for="signup-pass">
+		Contraseña:
+	</label>
+	<input type="password" id="signup-pass">
+	<br />
+
+	<button id="signup-button">
+		Regisrarse
+	</button>
+
+</div>
+
+<div class="subSection"
+	 id="subSection-user-logout">
+
+	<button id="logout-button">
+		Cerrar sesión
+	</button>
+
+</div>
+
+<div class="subSection"
+	 id="subSection-user-add-rating">
+
+	<h3>Añadir valoración a una receta</h3>
+
+	<label for="add-rating-recipe-id">
+		ID de la receta:
+	</label>
+	<input type="number" id="add-rating-recipe-id">
+	<br />
+
+	<label for="add-rating-name">
+		Nombre de la valoración:
+	</label>
+	<input type="text" id="add-rating-name">
+	<br />
+
+	<label for="add-rating-score">
+		Puntuación:
+	</label>
+	<input type="number" id="add-rating-score" min="0" max="5">
+	<br />
+
+	<button id="add-rating-button">
+		Añadir
+	</button>
+
+</div>
+
+			</div>
+			</div>
+		</div>
+
+		<div class="results">
+
+		</div>
+	</div>
+
+	<!--suppress HtmlUnknownTarget -->
+	<script type="text/javascript" src="./bundle.js"></script>
+</body>
+</html>
